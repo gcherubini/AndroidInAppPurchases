@@ -59,12 +59,15 @@ public class MainActivity extends AppCompatActivity implements IabHelper.OnIabSe
 
     @Override
     public void onPendingIntentPrepared(InAppPurchaseData data, PendingIntent pendingIntent) {
-        syncBuyIntentionData(data);
-        purchaseWithPendingIntent(pendingIntent);
+        syncBuyIntentionData(data, pendingIntent);
     }
 
-    private void syncBuyIntentionData(InAppPurchaseData data) {
+    private void syncBuyIntentionData(InAppPurchaseData data,  PendingIntent pendingIntent) {
         // TODO: Sync backend with data: orderId, purchaseToken, productId, etc.
+        boolean isSyncedSucessfully = true;
+        if(isSyncedSucessfully) {
+            purchaseWithPendingIntent(pendingIntent);
+        }
     }
 
     private void purchaseWithPendingIntent(PendingIntent pendingIntent) {
